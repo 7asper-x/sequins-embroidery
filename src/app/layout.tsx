@@ -20,8 +20,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <nav className="flex p-6 py-4 items-center space-x-6">
           <h1 className="font-semibold">Sequin&Embroidery</h1>
+          <Menu />
         </nav>
-        <Menu />
         {children}
       </body>
     </html>
