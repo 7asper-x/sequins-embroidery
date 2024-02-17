@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Menu } from "./Menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav className="flex p-6 py-4 items-center space-x-6">
+          <h1 className="font-semibold">Sequin&Embroidery</h1>
+        </nav>
+        <Menu />
+        {children}
+      </body>
     </html>
   );
 }
