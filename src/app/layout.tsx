@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Menu } from "./Menu";
+import { Menu } from "../components/Menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Input } from "@/components/ui/input";
+import Header from "@/components/Header";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +22,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav className="flex p-6 py-4 items-center space-x-6">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          {children}
+        </ThemeProvider>
+        {/* <nav className="flex p-6 py-4 justify-between items-center space-x-6">
           <h1 className="font-semibold">Sequin&Embroidery</h1>
           <Menu />
-        </nav>
-        {children}
+          <div className="flex space-x-4">
+            <Input placeholder="Search..." />
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </div>
+        </nav> */}
       </body>
     </html>
   );
